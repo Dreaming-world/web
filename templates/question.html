@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>全屏响应式分步式用户调查问卷表单设计|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+    <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+</head>
+<body>
+   <div>
+       <p>1.问题</P>
+       <p><input type="checkbox" name="category" value="A" />今日话题 </p>
+       <p><input type="checkbox" name="category" value="B" />视觉焦点</p>
+       <p><input type="checkbox" name="category" value="C" />财经</p>
+       <p><input type="checkbox" name="category" value="D" />汽车</p>
+   </div>
+   <div>
+       <p>1.问题</P>
+	   <p><input type="checkbox" name="category" value="A" />今日话题 </p>
+       <p><input type="checkbox" name="category" value="B" />视觉焦点</p>
+       <p><input type="checkbox" name="category" value="C" />财经</p>
+       <p><input type="checkbox" name="category" value="D" />汽车</p>
+   </div>
+   <p><input id="btnOperate" type="button" value="提交" onclick="static_num()" /></p>
+
+   <script>
+       function static_num()
+       {
+           var arr = new Array();
+           var items = document.getElementsByName("category");
+           for (i = 0; i < items.length; i++) {
+               if (items[i].checked) {
+                   arr.push(items[i].value);
+                   }
+               }
+           alert("选择的个数为：" + arr.length);
+       };
+   </script>
+</body>
+</html>

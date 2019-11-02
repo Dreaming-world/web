@@ -1,0 +1,83 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov  1 20:50:42 2019] ***
+compiled with version: 7.4.0 on 30 October 2019 14:16:20
+os: Linux-4.15.0-54-generic #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019
+nodename: VM-0-9-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /data/liuxiangfeng/web
+writing pidfile to uwsgi.pid
+detected binary path: /data/liuxiangfeng/venv/python3/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to .
+your processes number limit is 7079
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:5000 fd 6
+Python version: 3.6.8 (default, Oct  7 2019, 12:59:55)  [GCC 8.3.0]
+Python main interpreter initialized at 0x561e8b0035f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 618666 bytes (604 KB) for 4 cores
+*** Operational MODE: preforking+threaded ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 26217)
+spawned uWSGI worker 1 (pid: 26218, cores: 2)
+spawned uWSGI worker 2 (pid: 26219, cores: 2)
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x561e8b0035f0 pid: 26218 (default app)
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x561e8b0035f0 pid: 26219 (default app)
+[pid: 26219|app: 0|req: 1/1] 111.200.40.5 () {32 vars in 586 bytes} [Fri Nov  1 20:51:04 2019] GET / => generated 650 bytes in 5 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 2/2] 111.200.40.5 () {32 vars in 562 bytes} [Fri Nov  1 20:51:04 2019] GET /static/mystyle.css => generated 610 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 1)
+[pid: 26218|app: 0|req: 1/3] 111.200.40.5 () {32 vars in 569 bytes} [Fri Nov  1 20:51:04 2019] GET /favicon.ico => generated 232 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 2/4] 111.200.40.5 () {34 vars in 644 bytes} [Fri Nov  1 20:51:07 2019] GET /question => generated 1643 bytes in 4 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 1)
+[pid: 26219|app: 0|req: 3/5] 106.75.104.107 () {26 vars in 417 bytes} [Fri Nov  1 20:51:07 2019] GET /question => generated 1643 bytes in 1 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 1)
+[pid: 26218|app: 0|req: 3/6] 106.75.104.107 () {26 vars in 417 bytes} [Fri Nov  1 20:51:07 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 4/7] 106.75.104.107 () {26 vars in 417 bytes} [Fri Nov  1 20:51:07 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 5/8] 106.75.104.107 () {26 vars in 418 bytes} [Fri Nov  1 20:51:07 2019] HEAD /question => generated 0 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (0 switches on core 0)
+[pid: 26219|app: 0|req: 4/9] 106.75.104.107 () {26 vars in 417 bytes} [Fri Nov  1 20:51:07 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 6/10] 106.75.104.107 () {26 vars in 361 bytes} [Fri Nov  1 20:51:07 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 5/11] 111.200.40.5 () {34 vars in 610 bytes} [Fri Nov  1 20:51:12 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 6/12] 117.50.19.93 () {26 vars in 435 bytes} [Fri Nov  1 20:51:13 2019] GET /static/mystyle.css => generated 610 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 1)
+[pid: 26218|app: 0|req: 7/13] 117.50.19.93 () {26 vars in 435 bytes} [Fri Nov  1 20:51:13 2019] GET /static/mystyle.css => generated 610 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 0)
+[pid: 26219|app: 0|req: 7/14] 117.50.19.93 () {26 vars in 435 bytes} [Fri Nov  1 20:51:13 2019] GET /static/mystyle.css => generated 610 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 0)
+[pid: 26219|app: 0|req: 8/15] 117.50.19.93 () {26 vars in 436 bytes} [Fri Nov  1 20:51:13 2019] HEAD /static/mystyle.css => generated 0 bytes in 1 msecs (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 1)
+[pid: 26218|app: 0|req: 8/16] 117.50.19.93 () {26 vars in 435 bytes} [Fri Nov  1 20:51:13 2019] GET /static/mystyle.css => generated 610 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 0)
+[pid: 26219|app: 0|req: 9/17] 117.50.19.93 () {26 vars in 379 bytes} [Fri Nov  1 20:51:13 2019] GET /static/mystyle.css => generated 610 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 0)
+[pid: 26218|app: 0|req: 9/18] 106.75.22.46 () {26 vars in 421 bytes} [Fri Nov  1 20:51:13 2019] GET /favicon.ico => generated 232 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+[pid: 26218|app: 0|req: 10/19] 111.200.40.5 () {34 vars in 644 bytes} [Fri Nov  1 20:52:00 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 11/20] 111.200.40.5 () {34 vars in 610 bytes} [Fri Nov  1 20:52:04 2019] GET / => generated 650 bytes in 1050 msecs (HTTP/1.1 200) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 26219|app: 0|req: 10/21] 39.98.42.229 () {30 vars in 494 bytes} [Fri Nov  1 20:52:18 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 26219|app: 0|req: 11/22] 203.119.193.157 () {30 vars in 477 bytes} [Fri Nov  1 20:52:20 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 26219|app: 0|req: 12/23] 111.200.40.13 () {32 vars in 1261 bytes} [Fri Nov  1 20:53:03 2019] GET /?nsukey=4K51CEUU4A49oZsTg8P9vfOT3EzDzmqQfRjCjuQCgXouUhPvhPjKfxO3mwbQqmnyLUZ4DP4beMVlyj7FxS%2BEOcLziaNUURjUACceeQDQsW2KlZCphtpVbb4n8y5wmsa8uB7SoD%2B9M7ha2i1u7zNCnZL9xWEWnNQRRDRJNcQbQ2ItHymRoS872DexOaYOuCvzIRBzYSN2Mf3FkHrImp9M3A%3D%3D => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 12/24] 111.200.40.13 () {32 vars in 960 bytes} [Fri Nov  1 20:53:03 2019] GET /static/mystyle.css => generated 610 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 0)
+[pid: 26219|app: 0|req: 13/25] 111.200.40.13 () {32 vars in 1002 bytes} [Fri Nov  1 20:53:03 2019] GET /favicon.ico => generated 232 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 14/26] 111.200.40.13 () {34 vars in 1088 bytes} [Fri Nov  1 20:53:09 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 13/27] 111.200.40.13 () {32 vars in 1313 bytes} [Fri Nov  1 20:53:11 2019] GET /question?nsukey=R%2B%2BxpF%2FNjlcJAjqkYZEX%2BRMbzQgz59VBV4ka0JIT3%2By73BI9oH7CIiCVHRjV1Ka7PmlYFqOzHAOGkDYg2LW6m0O%2Fv8JTMRNmxJtKwhCrtEjFuaTm1QT%2BgcNVXXD1H7J0puCjz%2Fjbx%2B4LUOP%2B5GW6SJnfBH7wd4IbyGiMbqz84vl2roruRlQn%2F38OnayW8vZal3b3SUa7G6QtWmXIGqbQkg%3D%3D => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 14/28] 223.104.3.136 () {32 vars in 767 bytes} [Fri Nov  1 20:53:34 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 15/29] 223.104.3.136 () {30 vars in 693 bytes} [Fri Nov  1 20:53:34 2019] GET /static/mystyle.css => generated 610 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 0)
+[pid: 26218|app: 0|req: 15/30] 61.129.6.151 () {28 vars in 513 bytes} [Fri Nov  1 20:54:09 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 16/31] 101.91.60.108 () {28 vars in 1013 bytes} [Fri Nov  1 20:54:11 2019] GET /question?nsukey=R%2B%2BxpF%2FNjlcJAjqkYZEX%2BRMbzQgz59VBV4ka0JIT3%2By73BI9oH7CIiCVHRjV1Ka7PmlYFqOzHAOGkDYg2LW6m0O%2Fv8JTMRNmxJtKwhCrtEjFuaTm1QT%2BgcNVXXD1H7J0puCjz%2Fjbx%2B4LUOP%2B5GW6SJnfBH7wd4IbyGiMbqz84vl2roruRlQn%2F38OnayW8vZal3b3SUa7G6QtWmXIGqbQkg%3D%3D => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 17/32] 223.104.3.136 () {32 vars in 767 bytes} [Fri Nov  1 20:54:31 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 26219|app: 0|req: 18/33] 111.200.40.5 () {34 vars in 644 bytes} [Fri Nov  1 20:54:36 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 1)
+[pid: 26219|app: 0|req: 19/34] 111.200.40.5 () {34 vars in 644 bytes} [Fri Nov  1 20:54:39 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 1)
+[pid: 26219|app: 0|req: 20/35] 223.104.3.136 () {32 vars in 767 bytes} [Fri Nov  1 21:05:14 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 21/36] 101.227.139.161 () {28 vars in 500 bytes} [Fri Nov  1 22:03:06 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 22/37] 101.84.62.185 () {32 vars in 1281 bytes} [Fri Nov  1 22:37:20 2019] GET /?nsukey=0HH2aE9eahtUNu8Akk7qCZy%2BuZ9HC%2BA3sG4FEu6U%2BlY50853KOiFaMv7b9vj%2FnxR7yPSJh6XwVTZZVcq12JuMfH5Gpv04W9VwJQIxtXFjpfw3oJ69Ri5HqFTTQzTIqnZwMt4zdMnRPXKePjulC9eq3It1w2EQJXcOJ%2B%2BFgmEsid3vTGRtzlJrE%2BCunMOEgPz1ZiYEAHgVFLYJPPYv%2Bmn0g%3D%3D => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 16/38] 101.84.62.185 () {32 vars in 968 bytes} [Fri Nov  1 22:37:20 2019] GET /static/mystyle.css => generated 610 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 0)
+[pid: 26219|app: 0|req: 23/39] 101.84.62.185 () {32 vars in 1010 bytes} [Fri Nov  1 22:37:20 2019] GET /favicon.ico => generated 232 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 24/40] 183.194.170.233 () {32 vars in 1293 bytes} [Fri Nov  1 23:17:15 2019] GET /?nsukey=8d108Hgu8AKZs6AnnokWzwuem7ZceRoQK2wS8nTz4TBWpJZtQy5LoRgK1%2BngdutzfLwzgrK8FZ9k4PTn%2FZKf%2FQFjAAedrkFo%2FZjQ%2Ba3yqtgz8BaEQ%2F44KCaST%2BNbvWxXmOW0CM%2Bz9KKFIA4LH%2FAais6E%2FNw7jet6CzPnYtQf7tC1UVMK5gk6WJsEfbKH9Jl6pmHAX6FFMyK5sHKKSum15g%3D%3D => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 17/41] 183.194.170.233 () {32 vars in 1018 bytes} [Fri Nov  1 23:17:15 2019] GET /favicon.ico => generated 232 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 25/42] 61.151.207.141 () {28 vars in 499 bytes} [Fri Nov  1 23:18:13 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 18/43] 101.89.239.230 () {28 vars in 1038 bytes} [Fri Nov  1 23:18:15 2019] GET /?nsukey=8d108Hgu8AKZs6AnnokWzwuem7ZceRoQK2wS8nTz4TBWpJZtQy5LoRgK1%2BngdutzfLwzgrK8FZ9k4PTn%2FZKf%2FQFjAAedrkFo%2FZjQ%2Ba3yqtgz8BaEQ%2F44KCaST%2BNbvWxXmOW0CM%2Bz9KKFIA4LH%2FAais6E%2FNw7jet6CzPnYtQf7tC1UVMK5gk6WJsEfbKH9Jl6pmHAX6FFMyK5sHKKSum15g%3D%3D => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 26/44] 123.120.249.64 () {32 vars in 562 bytes} [Fri Nov  1 23:45:32 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 19/45] 123.120.249.64 () {32 vars in 560 bytes} [Fri Nov  1 23:45:32 2019] GET /static/mystyle.css => generated 610 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 299 bytes (0 switches on core 0)
+[pid: 26219|app: 0|req: 27/46] 123.120.249.64 () {32 vars in 531 bytes} [Fri Nov  1 23:45:32 2019] GET /favicon.ico => generated 232 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 20/47] 123.120.249.64 () {34 vars in 620 bytes} [Fri Nov  1 23:45:40 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 28/48] 123.120.249.64 () {32 vars in 539 bytes} [Fri Nov  1 23:45:40 2019] GET /favicon.ico => generated 232 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 26218|app: 0|req: 21/49] 123.120.249.64 () {34 vars in 620 bytes} [Fri Nov  1 23:45:46 2019] GET /question => generated 1643 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 81 bytes (1 switches on core 0)
+[pid: 26219|app: 0|req: 29/50] 198.108.67.48 () {20 vars in 215 bytes} [Sat Nov  2 15:00:29 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 26219|app: 0|req: 30/51] 92.118.160.1 () {22 vars in 342 bytes} [Sat Nov  2 15:41:10 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.0 200) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 26219|app: 0|req: 31/52] 211.150.70.18 () {26 vars in 363 bytes} [Sat Nov  2 20:27:17 2019] GET / => generated 650 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 1)

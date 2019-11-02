@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+</head>
+<body>
+    <form action="/submit-cat-photo">
+        <input class="login_input" type="text" placeholder="请输入用户名" required>
+        <br>
+        <input class="login_input" type="text" placeholder="请输入卡号" required>
+        <br>
+        <button id="send" class="login_button" type="button" onclick="snedFormdata()">Submit</button>
+    </form>
+</body>
+<script>
+    function snedFormdata() {
+        window.location.href = "{{ url_for('question') }}"
+        }
+</script>
+</html>
