@@ -6,53 +6,74 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<title>测试</title>
     <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/css/htmleaf-demo.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
-<body>
+<body style="background-image: url(/static/images/background.jpeg);">
+{#   <header>#}
+{#       <h1>用户名：{{ qa['user_name'] }}    员工账号：{{ qa['user_id'] }}</h1>#}
+{#   </header>#}
+   <div id="myDiv">
 
-
-   <header class="htmleaf-header">
-       <h1>用户名：{{ qa['user_name'] }}    员工账号：{{ qa['user_id'] }}</h1>
-   </header>
-   <div>
-        <p style="font-size: 20px;">一：单选题</p>
+    <div>
+        <p class="p1">一：单选题</p>
        {% for key in singal_dict.keys() %}
-           <p>{{ key|string + '. ' + singal_dict[key][0]}}</P>
+           <p class="p2">{{ key|string + '. ' + singal_dict[key][0]}}</P>
            {% for ele in singal_dict[key][1] %}
-               <p><input type="radio" name="category" value="{{ ele }}" />{{ ele }}</p>
+               <p class="p3"><input type="radio" name="{{"singal-" + key|string}}" value="{{ ele }}" />{{ ele }}</p>
            {% endfor %}
        {% endfor %}
    </div>
-   <div>
-       <p style="font-size: 20px;"> 二：多选题 </p>
+    <hr>
+    <div>
+       <p class="p1" "> 二：多选题 </p>
        {% for key in double_dict.keys() %}
-           <p>{{ key|string + '. ' + double_dict[key][0]}}</P>
+           <p class="p2">{{ key|string + '. ' + double_dict[key][0]}}</P>
            {% for ele in double_dict[key][1] %}
-               <p><input type="checkbox" name="category" value="{{ ele }}" />{{ ele }}</p>
+               <p class="p3"><input type="checkbox" name="{{"double-" + key|string}}" value="{{ ele }}" />{{ ele }}</p>
            {% endfor %}
        {% endfor %}
    </div>
-   <div>
-       <p style="font-size: 20px;"> 三：填空题 </p>
+    <hr>
+    <div>
+       <p class="p1" "> 三：填空题 </p>
        {% for key in fill_dict.keys() %}
-           <p>{{ key|string + '. ' + fill_dict[key][0]}}</P>
+           <p class="p2">{{ key|string + '. ' + fill_dict[key][0]}}<input class="add_input" type="text" name="key1.1" value=""></P>
        {% endfor %}
    </div>
-   <p style="text-align: center;"><input id="btnOperate" type="button" value="提交" onclick="static_num()" /></p>
+    <hr>
+    <div>
+       <p style="text-align: center; padding-bottom: 20px"><input id="btnOperate" type="button" value="提交" onclick="static_num()" /></p>
+   </div>
+   </div>
+
 
    <script>
        function static_num()
        {
+           {#var choice = {{ choice.content | tojson }}#}
+           {#console.log(choice)#}
            var arr = new Array();
-           var items = document.getElementsByName("category");
+           {#var items = document.getElementsByName("category");#}
+           var items = document.getElementsByTagName('input')
+           console.log(items)
            for (i = 0; i < items.length; i++) {
                if (items[i].checked) {
-                   arr.push(items[i].value);
+                   arr.push(items[i].name+'#'+items[i].value);
                    }
                }
+           console.log(arr)
+           var data = {"key":JSON.stringify(arr)};
+           $.ajax(
+               {
+                   url: "/check",
+                   type: "POST",
+                   data: data,
+                   dataType: "json",
+                   success: function (ret) {
+                       console.log(ret)
+                   }
+               }
+           )
            alert("选择的个数为：" + arr.length);
        };
    </script>

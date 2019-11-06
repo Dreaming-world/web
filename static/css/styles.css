@@ -86,11 +86,11 @@ header {
   transition: all 0.5s ease;
 }
 header h1 {
-  font-size: 42px;
+  font-size: 20px;
   color: #fff;
-  line-height: 230px;
+  line-height: 100px;
   text-transform: uppercase;
-  font-weight: 100;
+  /*font-weight: 100;*/
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;

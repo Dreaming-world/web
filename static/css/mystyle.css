@@ -10,3 +10,48 @@
     transition: all 0.5s ease 0s;
 
 }
+
+#myDiv{
+    background-color: white;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: black;
+    padding-top: 10px;
+    margin-top: 10%;
+
+}
+
+header{
+    background-color: #7f8c8d;
+}
+
+.p1{
+    padding-left: 50px;
+    font-size: 16px;
+    color: #6a6a6a;
+    font-family: "微软雅黑","Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
+
+.p2{
+    padding-left: 50px;
+    padding-top: 2px;
+    font-size: 15px;
+    color: #444444;
+    text-align: left;
+    font-family: "微软雅黑","Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
+
+.p3{
+    padding-left: 60px;
+    font-size: 15px;
+    color: #333333;
+    font-family: "微软雅黑","Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
+
+.add_input{
+    border-bottom: 1px solid #000;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}

@@ -2,12 +2,14 @@ from flask import Flask
 from flask import render_template
 from src.read_qa import read_qa
 from flask import request
+from flask import jsonify, json
 
 qa_path = 'qa_source/qa.txt'
 app = Flask(__name__)
 
 user_name = None
 user_id = None
+choice = [3, 2, 2]
 
 
 @app.route('/')
@@ -24,7 +26,7 @@ def question():
         user_name = request.form['user_name']
         user_id = request.form['user_id']
     print(user_name)
-    singal_dict, double_dict, fill_dict = read_qa(qa_path, choice = [2, 1, 1])
+    singal_dict, double_dict, fill_dict = read_qa(qa_path, choice=choice)
     # print(singal_dict)
     # print(double_dict)
     # print(fill_dict)
@@ -36,6 +38,16 @@ def question():
                            singal_dict=singal_dict,
                            double_dict=double_dict,
                            fill_dict=fill_dict)
+
+
+@app.route('/check', methods=['GET','POST'])
+def check():
+    if request.method == 'POST':
+        rec_data = request.form.get('key')
+        data = json.loads(rec_data)
+        print(type(data))
+
+    return jsonify({'ok': True})
 
 
 if __name__ == '__main__':
