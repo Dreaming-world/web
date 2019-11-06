@@ -37,7 +37,7 @@
     <div>
        <p class="p1" "> 三：填空题 </p>
        {% for key in fill_dict.keys() %}
-           <p class="p2">{{ key|string + '. ' + fill_dict[key][0]}}<input class="add_input" type="text" name="key1.1" value=""></P>
+           <p class="p2">{{ key|string + '. ' + fill_dict[key]}}<input class="add_input" type="text" name="key1.1" value=""></P>
        {% endfor %}
    </div>
     <hr>

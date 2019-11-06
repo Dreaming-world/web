@@ -29,7 +29,12 @@ def question():
     singal_dict, double_dict, fill_dict = read_qa(qa_path, choice=choice)
     # print(singal_dict)
     # print(double_dict)
-    # print(fill_dict)
+    print(fill_dict)
+    # TODO
+    left_index = 0
+    left_index = 0
+
+
     qa = {
         'user_name': user_name,
         'user_id': user_id

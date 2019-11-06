@@ -23,7 +23,7 @@ def split_answer(answer):
 def read_qa(file_path, choice=[]):
     singal_dict = defaultdict(list)
     double_dict = defaultdict(list)
-    fill_dict = defaultdict(list)
+    fill_dict = {}
     index_singal = 0
     index_double = 0
     index_fill = 0
@@ -80,7 +80,7 @@ def read_qa(file_path, choice=[]):
 
             if flag_fill:
                 index_fill += 1
-                fill_dict[index_fill].append(''.join(line.split('.')[1:]))
+                fill_dict[index_fill]= ''.join(line.split('.')[1:])
                 # print(line)
                 line = f.readline().replace('\n', '').replace('\t', '')
     # TODO
