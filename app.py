@@ -25,15 +25,40 @@ def question():
     if request.method == 'POST':
         user_name = request.form['user_name']
         user_id = request.form['user_id']
-    print(user_name)
+    # print(user_name)
     singal_dict, double_dict, fill_dict = read_qa(qa_path, choice=choice)
     # print(singal_dict)
     # print(double_dict)
-    print(fill_dict)
+    # print(fill_dict)
     # TODO
-    left_index = 0
-    left_index = 0
+    from collections import defaultdict
+    fill_list_dict = defaultdict(list)
+    for key in fill_dict.keys():
+        # print(fill_dict[key])
+        i = 0
+        left_index = 0
+        right_index = 0
+        current = 0
+        split_fill = []
+        for substr in fill_dict[key]:
+            # print(substr)
 
+            if '(' == substr or '（' == substr:
+                left_index = i
+                # print(left_index)
+            if ')' == substr or '）' == substr:
+                right_index = i
+                if right_index - left_index == 1:
+                    split_fill.append(fill_dict[key][current:left_index])
+                    current = right_index + 1
+                else:
+                    left_index = 0
+                    right_index = 0
+
+            i = i + 1
+        split_fill.append(fill_dict[key][current:])
+        fill_list_dict[key].extend(split_fill)
+    print(fill_list_dict)
 
     qa = {
         'user_name': user_name,
@@ -42,7 +67,7 @@ def question():
     return render_template('question.html', qa=qa,
                            singal_dict=singal_dict,
                            double_dict=double_dict,
-                           fill_dict=fill_dict)
+                           fill_dict=fill_list_dict)
 
 
 @app.route('/check', methods=['GET','POST'])
