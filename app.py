@@ -3,6 +3,7 @@ from flask import render_template
 from src.read_qa import read_qa
 from flask import request
 from flask import jsonify, json
+from collections import defaultdict
 
 qa_path = 'qa_source/qa.txt'
 app = Flask(__name__)
@@ -31,7 +32,6 @@ def question():
     # print(double_dict)
     # print(fill_dict)
     # TODO
-    from collections import defaultdict
     fill_list_dict = defaultdict(list)
     for key in fill_dict.keys():
         # print(fill_dict[key])
@@ -64,7 +64,7 @@ def question():
         'user_name': user_name,
         'user_id': user_id
     }
-    return render_template('question.html', qa=qa,
+    return render_template('qa.html', qa=qa,
                            singal_dict=singal_dict,
                            double_dict=double_dict,
                            fill_dict=fill_list_dict)
@@ -72,10 +72,17 @@ def question():
 
 @app.route('/check', methods=['GET','POST'])
 def check():
+    user_answer = defaultdict(list)
     if request.method == 'POST':
         rec_data = request.form.get('key')
         data = json.loads(rec_data)
-        print(type(data))
+        for ele in data:
+            key, answer = ele.split('#')
+            if "fill" in key:
+                user_answer[key].append(answer)
+            else:
+                user_answer[key].append(answer[0])
+    print(user_answer)
 
     return jsonify({'ok': True})
 

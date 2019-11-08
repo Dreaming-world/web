@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="myDiv">
+        <p class="p1">一：单选题</p>
+        {% for key in singal_dict.keys() %}
+            <p class="p2">{{ key|string + '. ' + singal_dict[key][0]}}</P>
+           {% for ele in singal_dict[key][1] %}
+               <p class="p3">
+                   <input type="radio" name="{{"singal-" + key|string}}" value="{{ ele }}"/>{{ ele }}<br>
+               </p>
+           {% endfor %}
+        {% endfor %}
+        <hr>
+        <p class="p1" > 二：多选题 </p>
+        {% for key in double_dict.keys() %}
+            <p class="p2">{{ key|string + '. ' + double_dict[key][0]}}</P>
+            {% for ele in double_dict[key][1] %}
+                <p class="p3"><input type="checkbox" name="{{"double-" + key|string}}" value="{{ ele }}" />{{ ele }}</p>
+            {% endfor %}
+        {% endfor %}
+        <hr>
+        <p class="p1" > 三：填空题 </p>
+        {% for  key in fill_dict.keys() %}
+            <p class="p2">
+            {{ key|string + '. ' }}
+            {% for ele in fill_dict[key][0:-1] %}
+                {{ ele }}
+                <input name="{{"fill-" + key|string}}"
+                       onkeydown="this.onkeyup();"
+                       onkeyup="this.size=(this.value.length>4?this.value.length:4);"
+                       size="4"
+                       class="fill_input"
+                       type="text">
+            {% endfor %}
+            {{ fill_dict[key][-1] }}
+            </p>
+        {% endfor %}
+
+        <button type="button" onclick="getElements()"value="提交试卷" />提交试卷
+    </div>
+
+    <script type="text/javascript">
+        function getElements()
+        {
+            var data = new Array()
+            var x=document.getElementsByTagName("input");
+            for (i = 0; i < x.length; i++)
+            {
+                if(x[i].type == "radio" || x[i].type == "checkbox")
+                {
+                    if(x[i].checked)
+                    {
+                        data.push(x[i].name + '#' + x[i].value)
+                        alert(x[i].name)
+                        alert(x[i].value)
+                    }
+
+                }
+                else
+                    {
+                        if (x[i].value)
+                        {
+                            data.push(x[i].name + '#' + x[i].value)
+                            alert(x[i].value)
+                            alert(x[i].value)
+                        }
+                    }
+            }
+            console.log(data)
+            var data_dic = {"key":JSON.stringify(data)};
+            $.ajax
+            (
+               {
+                   url: "/check",
+                   type: "POST",
+                   data: data_dic,
+                   dataType: "json",
+                   success: function (ret) {
+                       console.log(ret)
+                   }
+               }
+           )
+        }
+    </script>
+
+
+</body>
+</html>

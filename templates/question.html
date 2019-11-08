@@ -25,7 +25,7 @@
    </div>
     <hr>
     <div>
-       <p class="p1" "> 二：多选题 </p>
+       <p class="p1" > 二：多选题 </p>
        {% for key in double_dict.keys() %}
            <p class="p2">{{ key|string + '. ' + double_dict[key][0]}}</P>
            {% for ele in double_dict[key][1] %}
@@ -35,15 +35,15 @@
    </div>
     <hr>
     <div>
-       <p class="p1" "> 三：填空题 </p>
+       <p class="p1" > 三：填空题 </p>
        {% for key in fill_dict.keys() %}
            <p class="p2">{{ key|string + '. '}}
                {% for ele in fill_dict[key] %}
                     {{ ele }}
                {% endfor %}
 
-{#               <input onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4"#}
-{#                      class="add_input" type="text" name="key1.1" value="">#}
+               <input onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>4?this.value.length:4);" size="4"
+                      class="add_input" type="text" name="key1.1" value="">
            </P>
        {% endfor %}
    </div>
